@@ -1,0 +1,36 @@
+Patient Class--add patient method, view patient method , check patient method
+Doctor class--- view doctor method , check method method.
+Hospital Mgmt System cls---- driver cls , main method.., DB connection
+============== ===============================
+
+DB schema--->>  3 tables... 1st patient table...2nd doctors table...3rd appointment table
+
+1st table ke PK hai P_ID... 2nd table ke PK hai doctor_id
+3rd table meh appointment_id is PK and P_ID is FK  and   D_ID is FK.
+========================== ==================== ===========
+
+mysql> CREATE TABLE appointments(
+    -> id INT AUTO_INCREMENT PRIMARY KEY,
+    -> patient_id INT NOT NULL,
+    -> doctor_id INT NOT NULL,
+    -> appointment_date DATE NOT NULL,
+    -> FOREIGN KEY (patient_id) REFERENCES patients(id),
+    -> FOREIGN KEY (doctor_id) REFERENCES doctors(id)
+    -> );
+
+mysql> INSERT INTO doctors(name,specialisation) VALUES("SHIVENDRA GUPTA","Physician");  //---hum neh yha id nhi daale hai pr frr bhi neeche table meh id apne aap 1 aaye ge--
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from doctors;
++----+-----------------+----------------+
+| id | name            | specialisation |
++----+-----------------+----------------+
+|  1 | SHIVENDRA GUPTA | Physician      |
++----+-----------------+----------------+
+1 row in set (0.00 sec)
+--------------------------------------
+================== =================== --------
+
+Hum bas doctors table banaye geh.
+==================== =========== ============ 
+
